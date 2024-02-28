@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3  # Node.js 20に対応した最新バージョンを使用
+        uses: actions/checkout@v4  # Node.js 20に対応した最新バージョンを使用
 
       - name: Setup node
         uses: actions/setup-node@v3  # Node.js 20に対応した最新バージョンを使用
