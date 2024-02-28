@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3  # Node.js 20に対応した最新バージョンを使用
 
       - name: Setup node
-        uses: actions/setup-node@v4  # Node.js 20に対応した最新バージョンを使用
+        uses: actions/setup-node@v3  # Node.js 20に対応した最新バージョンを使用
         with:
           node-version: '20'
 
