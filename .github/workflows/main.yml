@@ -25,6 +25,10 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Ensure out directory exists
+        run: mkdir -p ./out
+        
       - name: Debug
         run: |
           echo "Bucket: ${{ secrets.AWS_S3_BUCKET }}"
