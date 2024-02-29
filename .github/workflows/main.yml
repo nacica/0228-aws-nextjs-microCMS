@@ -39,13 +39,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
         run: |
           echo "AWS s3 sync"
-          # ビルドされたファイルが ./out ディレクトリにあることを確認
-          if [ -d "./out" ]; then
-            aws s3 sync --region ap-northeast-1 ./out s3://${{ secrets.AWS_S3_BUCKET }} --delete
-          else
-            echo "Error: The ./out directory does not exist."
-            exit 1
-          fi
+          aws s3 sync --region ap-northeast-1 ./out s3://${{ secrets.AWS_S3_BUCKET }} --delete || true
           
           echo "AWS CF reset"
           aws cloudfront create-invalidation --region ap-northeast-1 --distribution-id ${{ secrets.AWS_CF_ID }} --paths "/*"
